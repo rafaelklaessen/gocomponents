@@ -1,3 +1,3 @@
 #GoComponents
 
-Rendering material design components easily via Golang. Basically to practice the language.
+Rendering material design components easily in Golang. I'm basically practicing the language.
