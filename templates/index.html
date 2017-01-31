@@ -1,0 +1,17 @@
+{{ define "layout" }}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ .SiteTitle }}</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/material.css">
+  </head>
+  <body>
+    {{ with $data := . }}
+    {{ template "header" . }}
+    {{ end }}
+    <script src="/static/js/test.js"></script>
+  </body>
+</html>
+{{ end }}

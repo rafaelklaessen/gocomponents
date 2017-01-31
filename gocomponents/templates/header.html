@@ -1,1 +1,7 @@
-<h1>Welcome, {{ .Name }}</h1>
+{{ define "header" }}
+
+<header class="site-header">
+  <h1 class="site-title">Welcome, {{ .SiteTitle }}</h1>
+</header>
+
+{{ end }}

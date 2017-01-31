@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.site-header {
+  padding-left: 64px;
+  padding-right: 64px;
+  width: 100vw;
+  height: 64px;
+  line-height: 64px;
+  vertical-align: middle;
+  color: #FFFFFF;
+  background-color: #2196F3;
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+
+  .site-title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
