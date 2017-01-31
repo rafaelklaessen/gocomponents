@@ -9,6 +9,7 @@ import (
         "path/filepath"
         "log"
         "html/template"
+        "./gocomponents"
 )
 
 func static(w http.ResponseWriter, r *http.Request) {
@@ -56,7 +57,7 @@ func static(w http.ResponseWriter, r *http.Request) {
 
 func index(w http.ResponseWriter, r *http.Request) {
         // Parse required files
-        t, err := template.ParseFiles("./templates/index.html", "./gocomponents/templates/header.html")
+        t, err := template.ParseFiles("./templates/index.html", "./gocomponents/templates/header.html", "./gocomponents/templates/sidebar.html")
         
         // Make sure there are no errors
         if err != nil  {
@@ -64,12 +65,20 @@ func index(w http.ResponseWriter, r *http.Request) {
         }
         
         // Data for the template
-        templateData := map[string]string{
-                "SiteTitle": "Eggs Benedict",
+        data := gocomponents.TemplateData{
+                SiteTitle: "Kees", 
+                HasSidebar: true,
+                SidebarItems: map[string]string{
+                        "kaas": "Kaas",
+                        "kees-btn": "Koel",
+                },
+                Cards: map[string]template.HTML{
+                        "CardOne": gocomponents.Card("henk jan", "<h1>kees</h1>"),
+                },
         }
 
         // Execute templates
-        t.ExecuteTemplate(w, "layout", templateData)
+        t.ExecuteTemplate(w, "layout", data)
 }
 
 func main() {

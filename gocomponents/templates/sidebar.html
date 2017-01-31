@@ -1,0 +1,13 @@
+{{ define "sidebar" }}
+
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-items">
+  {{ range $class, $content := .SidebarItems }}
+    <li class="sidebar-item {{ $class }}">{{ $content }}</li>
+  {{ end }}
+  </ul>
+
+</aside>
+
+{{ end }}
