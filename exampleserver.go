@@ -12,6 +12,7 @@ import (
         "./gocomponents"
 )
 
+// The static function serves all gocomponents/static/ files at localhost:9090/static
 func static(w http.ResponseWriter, r *http.Request) {
         // Get path and add gocomponents to it to get the correct file
         path := "gocomponents/" + r.URL.Path
@@ -55,6 +56,7 @@ func static(w http.ResponseWriter, r *http.Request) {
         return;
 }
 
+// The index function serves at localhost:9090/
 func index(w http.ResponseWriter, r *http.Request) {
         // Parse required files
         t, err := template.ParseFiles("./templates/index.html", "./gocomponents/templates/header.html", "./gocomponents/templates/sidebar.html", "./gocomponents/templates/colors.html")
@@ -82,7 +84,7 @@ func index(w http.ResponseWriter, r *http.Request) {
                 Components: map[string]template.HTML{
                         "MyCard": gocomponents.Card("henk jan", "<h1>kees</h1>"),
                         "MyButton": gocomponents.Button("kees iscool", "klikkie"),
-                        "MyCheckbox": gocomponents.CheckBox("myCheckbox", "kees", "Gratis YT monnie?"),
+                        "MyCheckbox": gocomponents.CheckBox("myCheckbox", "kees", "Free YT money?"),
                         "MyRadio": gocomponents.Radio("myRadio", "jan henk", "Radio button"),
                         "MyInput": gocomponents.Input("myInput", "kees henk", "Your name", -1),
                         "MyList": gocomponents.List("kees-list", map[string]string{
@@ -119,5 +121,5 @@ func index(w http.ResponseWriter, r *http.Request) {
 func main() {
         http.HandleFunc("/static/", static)
         http.HandleFunc("/", index)
-        http.ListenAndServe(":666", nil)
+        http.ListenAndServe(":9090", nil)
 }
