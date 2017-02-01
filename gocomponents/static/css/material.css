@@ -30,7 +30,7 @@ body {
   -moz-transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
   -webkit-transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
   -ms-transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-  #site-header .menu-btn {
+  #site-header .sidebar-btn {
     float: left;
     margin-right: 14px;
     line-height: 64px;

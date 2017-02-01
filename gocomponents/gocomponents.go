@@ -142,3 +142,9 @@ func Menu(classes string, btnText string, menuItems map[string]string) template.
                 </div>
         `)
 }
+
+func FloatingActionButton(classes string, btnIcon string) template.HTML {
+        return template.HTML(`
+                <button class="` + classes + ` floating-action-button material-icons">` + btnIcon + `</button>
+        `)
+}

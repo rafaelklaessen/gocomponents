@@ -47,7 +47,7 @@ $headerHeight: 64px;
   box-shadow: 0 2px 5px rgba(0,0,0,.26);
   @include transition($defaultTransition);
 
-  .menu-btn {
+  .sidebar-btn {
     float: left;
     margin-right: 14px;
     line-height: $headerHeight;

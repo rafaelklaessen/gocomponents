@@ -103,6 +103,7 @@ func index(w http.ResponseWriter, r *http.Request) {
                                 "item-one": "Item ONEEE",
                                 "item-two": "WE ARE NUMBER TWO",
                         }),
+                        "MyActionButton": gocomponents.FloatingActionButton("my-action-btn", "add"),
                         "CompleteCard": gocomponents.Card("complete-card", `
                                 <h3>kees</h3>
                                 ` + string(gocomponents.Button("kees iscool", "klikkie")) + `
