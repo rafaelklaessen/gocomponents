@@ -126,3 +126,19 @@ func TabGroup(classes string, tabs ...map[string]string) template.HTML {
                 </section>
         `)
 }
+
+func Menu(classes string, btnText string, menuItems map[string]string) template.HTML {
+        menu := `{`
+
+        for itemClass, itemContent := range menuItems {
+                menu += `{"class": "` + itemClass + `", "content": "` + itemContent + `"},`
+        }
+
+        menu += `}`
+
+        return template.HTML(`
+                <div class="` + classes + ` menu-container">
+                        <button class="menu-btn btn" data-menu='` + menu + `'>` + btnText + `</button>
+                </div>
+        `)
+}

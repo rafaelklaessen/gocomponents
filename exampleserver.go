@@ -99,6 +99,10 @@ func index(w http.ResponseWriter, r *http.Request) {
                                         "tabName": "Henk",
                                         "tabContent": "Oh boi",
                         }),
+                        "MyMenu": gocomponents.Menu("kees-menu", "MyMenu", map[string]string{
+                                "item-one": "Item ONEEE",
+                                "item-two": "WE ARE NUMBER TWO",
+                        }),
                         "CompleteCard": gocomponents.Card("complete-card", `
                                 <h3>kees</h3>
                                 ` + string(gocomponents.Button("kees iscool", "klikkie")) + `

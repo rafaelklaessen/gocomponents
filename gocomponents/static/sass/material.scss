@@ -4,7 +4,7 @@
 $sidePadding: 64px;
 
 // Default transition
-$defaultTransition: all .2s ease-in-out;
+$defaultTransition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 
 // Mixin for transition
 @mixin transition($transition) {
