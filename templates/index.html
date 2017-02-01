@@ -8,9 +8,11 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/static/css/material.css" rel="stylesheet">
+      
+    {{ template "colors" . }}
+
   </head>
   <body>
-    {{ with $data := . }}
 
     {{ if .HasSidebar }}
       {{ template "sidebar" . }}
@@ -19,13 +21,29 @@
     <main id="main" class="main">
       {{ template "header" . }}
 
-      {{ index .Cards "CardOne" }}
+      <!-- Use card with component -->
+      {{ index .Components "MyCard" }}
+      <!-- Use cards without component -->
+      <article class="card">
+        {{ index .Components "MyButton" }}
+      </article>
+      <article class="card">
+        {{ index .Components "MyCheckbox" }}
+      </article>
+      <article class="card">
+        {{ index .Components "MyRadio" }}
+      </article>
+      <article class="card">
+        {{ index .Components "MyInput" }}
+      </article>
 
+      <!-- Nested components -->
+      {{ index .Components "CompleteCard" }}
     </main>
-    {{ end }}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/static/js/material.js"></script>
   </body>
 </html>
+
 {{ end }}

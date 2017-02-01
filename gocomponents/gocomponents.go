@@ -7,9 +7,10 @@ import (
 
 type TemplateData struct {
         SiteTitle string
+        Colors map[string]string
         HasSidebar bool
         SidebarItems map[string]string
-        Cards map[string]template.HTML
+        Components map[string]template.HTML
 }
 
 func Card(classes string, content string) template.HTML {
@@ -47,7 +48,7 @@ func Radio(id string, classes string, label string) template.HTML {
 func Input(id string, classes string, label string, maxlength int) template.HTML {        
         var maxlengthAttr string
         
-        if maxlength == 0 {
+        if maxlength == -1 {
                 maxlengthAttr = " "
         } else {
                 maxlengthAttr = `maxlength="` + strconv.Itoa(maxlength) + `"` 

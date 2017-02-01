@@ -1,0 +1,10 @@
+{{ define "colors" }}
+
+<style>
+  #site-header {
+    color: {{ index .Colors "primaryText" }};
+    background-color: {{ index .Colors "primary" }};
+  }
+</style>
+
+{{ end }}
