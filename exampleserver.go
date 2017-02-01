@@ -85,11 +85,25 @@ func index(w http.ResponseWriter, r *http.Request) {
                         "MyCheckbox": gocomponents.CheckBox("myCheckbox", "kees", "Gratis YT monnie?"),
                         "MyRadio": gocomponents.Radio("myRadio", "jan henk", "Radio button"),
                         "MyInput": gocomponents.Input("myInput", "kees henk", "Your name", -1),
+                        "MyList": gocomponents.List("kees-list", map[string]string{
+                                "Pizza": "omnom",
+                                "More pizza": "extra omnom",
+                                "Infinite pizza": "ultramegaomnom",
+                        }),
+                        "MyProgressBar": gocomponents.ProgressBar("kees-bar", "Progress", false),
+                        "MyTabGroup": gocomponents.TabGroup("kees is-cool", map[string]string{
+                                        "tabName": "kees",
+                                        "tabContent": "<p>cool</p>",
+                                }, 
+                                map[string]string{
+                                        "tabName": "Henk",
+                                        "tabContent": "Oh boi",
+                        }),
                         "CompleteCard": gocomponents.Card("complete-card", `
                                 <h3>kees</h3>
-                                ` + string(gocomponents.Button("kees iscool", "klikkie") + `
+                                ` + string(gocomponents.Button("kees iscool", "klikkie")) + `
                                 <p>Cool, ain't it?</p>
-                        `)),
+                        `),
                 },
         }
 
