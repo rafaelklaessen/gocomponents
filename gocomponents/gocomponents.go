@@ -225,6 +225,6 @@ func Menu(classes string, btnText string, menuItems map[string]string) template.
 // The floating action button function gives a material design floating action button
 func FloatingActionButton(classes string, btnIcon string) template.HTML {
         return template.HTML(`
-                <button class="` + classes + ` floating-action-button material-icons">` + btnIcon + `</button>
+                <button class="` + classes + ` floating-action-btn material-icons">` + btnIcon + `</button>
         `)
 }

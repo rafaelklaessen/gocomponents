@@ -1,3 +1,4 @@
+// Get font
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
 // Padding from the sides
@@ -5,6 +6,11 @@ $sidePadding: 64px;
 
 // Default transition
 $defaultTransition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// Default box shadow
+$defaultBoxShadow: 0px 3px 1px -2px rgba(0, 0, 0, .2), 0px 2px 2px 0px rgba(0, 0, 0, .14), 0px 1px 5px 0px rgba(0, 0, 0, .12);
+// Default box shadow when active
+$defaultBoxShadowActive: 0px 5px 5px -3px rgba(0, 0, 0, .2), 0px 8px 10px 1px rgba(0, 0, 0, .14), 0px 3px 14px 2px rgba(0, 0, 0, .12);
 
 // Mixin for transition
 @mixin transition($transition) {
@@ -38,7 +44,7 @@ body {
   padding: 24px;
   width: calc(100%%);
   background-color: #FFFFFF;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: $defaultBoxShadow;
 }
 
 $headerHeight: 64px;
@@ -117,18 +123,41 @@ $headerHeight: 64px;
   padding: 0 16px;
   line-height: 36px;
   vertical-align: middle;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   border: 0;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, .2), 0px 2px 2px 0px rgba(0, 0, 0, .14), 0px 1px 5px 0px rgba(0, 0, 0, .12);
+  box-shadow: $defaultBoxShadow;
   cursor: pointer;
   outline-width: 0;
   @include transition($defaultTransition);
   @include noappearance();
 
   &:active {
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, .2), 0px 8px 10px 1px rgba(0, 0, 0, .14), 0px 3px 14px 2px rgba(0, 0, 0, .12);
+    box-shadow: $defaultBoxShadowActive;
   }
 }
+
+.floating-action-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 24px;
+  border: 0;
+  border-radius: calc(100%%);
+  box-shadow: $defaultBoxShadow;
+  outline-width: 0;
+  cursor: pointer;
+  @include transition($defaultTransition);
+  @include noappearance();
+
+  &:active {
+    box-shadow: $defaultBoxShadowActive;
+  }
+} 
