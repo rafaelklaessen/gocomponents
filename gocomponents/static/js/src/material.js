@@ -1,4 +1,4 @@
-$('#sidebar-btn').click(function() {
+$('#sidebar-btn').click(() => {
   $('#sidebar').toggleClass('open');
   $('#main').toggleClass('sidebar-open');     
 });
