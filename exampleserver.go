@@ -25,7 +25,7 @@ func index(w http.ResponseWriter, r *http.Request) {
                         "primaryDark": "#1976D2",
                         "primaryText": "#FFFFFF",
                         "accent": "#FF6E40",
-                        "accentText": "rgba(0, 0, 0, .87)",
+                        "accentText": "#000000",
                 },
                 HasSidebar: true,
                 SidebarItems: map[string]string{
@@ -34,7 +34,9 @@ func index(w http.ResponseWriter, r *http.Request) {
                 },
                 Components: map[string]template.HTML{
                         "MyCard": gocomponents.Card("henk jan", "<h1>kees</h1>"),
-                        "MyButton": gocomponents.Button("kees iscool", "klikkie"),
+                        "MyButton": gocomponents.Button("primary-btn", "klikkie"),
+                        "MyButtonTwo": gocomponents.Button("accent-btn", "klikkie"),
+                        "MyButtonThree": gocomponents.Button("flat-btn", "klikkie"),
                         "MyCheckbox": gocomponents.CheckBox("myCheckbox", "kees", "Free YT money?"),
                         "MyRadio": gocomponents.Radio("myRadio", "jan henk", "Radio button"),
                         "MyInput": gocomponents.Input("myInput", "kees henk", "Your name", -1),

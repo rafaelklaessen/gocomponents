@@ -76,7 +76,7 @@ func Card(classes string, content string) template.HTML {
 // The button function gives a button
 func Button(classes string, content string) template.HTML {
         return template.HTML(`
-                <button class="` + classes + `btn">` + content + `</button>
+                <button class="` + classes + ` btn">` + content + `</button>
         `)
 }
 
