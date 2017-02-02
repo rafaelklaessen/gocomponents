@@ -1,60 +1,11 @@
 package main
 
 import (
-        "fmt"
         "net/http"
-        "os"
-        "bufio"
-        "mime"
-        "path/filepath"
         "log"
         "html/template"
         "./gocomponents"
 )
-
-// The static function serves all gocomponents/static/ files at localhost:9090/static
-func static(w http.ResponseWriter, r *http.Request) {
-        // Get path and add gocomponents to it to get the correct file
-        path := "gocomponents/" + r.URL.Path
-
-        // Open file
-        data, err := os.Open(path)
-
-        // If an error occurred, render an error page
-        if err != nil {
-                fmt.Fprintf(w, err.Error())
-                return
-        }
-
-        // Close data on next return
-        defer data.Close()
-
-        // Create a scanner
-        scanner := bufio.NewScanner(data)
-
-        var fileContent string
-
-        // Scan file and save result in fileContent
-        for scanner.Scan() {
-                fileContent += scanner.Text() + "\n"
-        }
-
-        // If the scanner ran into an error, display it
-        if err := scanner.Err(); err != nil {
-                fmt.Fprintf(w, err.Error())
-                return
-        }
-
-        // Get mime type by extension
-        mimeType := mime.TypeByExtension(filepath.Ext(path))
-
-        // Set content type 
-        w.Header().Set("Content-Type", mimeType)
-
-        // Show file
-        fmt.Fprintf(w, fileContent)
-        return;
-}
 
 // The index function serves at localhost:9090/
 func index(w http.ResponseWriter, r *http.Request) {
@@ -119,7 +70,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-        http.HandleFunc("/static/", static)
+        http.HandleFunc("/static/", gocomponents.ServeStatic)
         http.HandleFunc("/", index)
         http.ListenAndServe(":9090", nil)
 }
